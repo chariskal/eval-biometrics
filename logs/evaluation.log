@@ -1,0 +1,16 @@
+2021-03-04 19:10:44,893-INFO-BSSR1 data read!
+2021-03-04 19:10:46,691-INFO-Figure 'pdf.png' saved!
+2021-03-04 19:10:47,132-INFO-Figure 'roc.png' saved!
+2021-03-04 19:10:47,438-INFO-AUC for ROC (left index): 0.9712470650650651, (right index) 0.9826611286286288
+2021-03-04 19:10:47,878-INFO-Figure 'err_th.png' saved!
+2021-03-04 19:10:48,878-INFO-Figure 'det.png' saved!
+2021-03-04 19:11:23,226-INFO-Figure 'f1_acc.png' saved!
+2021-03-04 19:11:23,227-INFO-F1-score is maximum (left index) for thres: 0.2, (right index) 0.19642857142857142
+2021-03-04 19:11:23,227-INFO-Accuracy is maximum (left index) for thres: 0.2040816326530612, (right index) 0.19999999999999998
+2021-03-04 19:11:23,678-INFO-Figure 'eer.png' saved!
+2021-03-04 19:11:24,535-INFO-Figure 'prec_rec.png' saved!
+2021-03-04 19:11:24,535-INFO-AUC for precision-recall (left index) is: 0.8024277703093454, (right index) 0.8616942482978744
+2021-03-04 19:11:24,535-INFO-Average Precision score (left index) is: 0.7988972537365139, (right index) 0.8595122882879992
+2021-03-04 19:11:24,795-INFO-Figure 'cmc.png' saved!
+2021-03-04 19:11:24,795-INFO-Rank-1 rate (left index) is: 0.796, (right index) 0.859
+2021-03-04 19:11:24,795-INFO-Script ended succesfully!
