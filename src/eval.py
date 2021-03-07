@@ -8,7 +8,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler('./logs/verification.log')
+handler = logging.FileHandler('./logs/evaluation.log')
 handler.setLevel(logging.DEBUG)
 
 f_format = logging.Formatter('%(asctime)s-%(levelname)s-%(message)s')
@@ -17,7 +17,7 @@ logger.addHandler(handler)
 
 class Eval_class:
     """
-    Class Description: for verification of a biometrics system
+    Class Description: for evaluation of a biometrics system
     """
 
     def __init__(self, no_subjects, numbins = 300):
@@ -128,9 +128,9 @@ class Eval_class:
         plt.figure()
         for true,score,l in zip(y_true,scores,labels):
             fpr, frr, _ = metrics.det_curve(true, score)
-            plt.plot(frr, fpr, label=l)
-        plt.xlabel('FRR')
-        plt.ylabel('FPR')
+            plt.plot(fpr, frr, label=l)
+        plt.xlabel('FPR')
+        plt.ylabel('FRR')
         plt.title('DET curve')
         plt.xscale('log')
         plt.yscale('log')
@@ -168,7 +168,7 @@ class Eval_class:
             xaxis = np.linspace(0,1,len(f1_list))
             plt.plot(xaxis,f1_list, label='f1 '+l)
             plt.plot(xaxis,acc_list, label='acc '+l)
-            f1_th_max.append(np.argmax(f1_list)/len(f1_list))               # find where f1 is maximum and get threshold there
+            f1_th_max.append(xaxis[np.argmax(f1_list)])               # find where f1 is maximum and get threshold there
             acc_th_max.append(xaxis[np.argmax(acc_list)])                   # find where accuracy is maximum and get the threshold value there
         plt.xlabel('threshold')
         plt.ylabel('score')
