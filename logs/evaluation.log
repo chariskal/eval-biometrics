@@ -14,3 +14,36 @@
 2021-03-07 20:22:51,131-INFO-Figure 'cmc.png' saved!
 2021-03-07 20:22:51,131-INFO-Rank-1 rate (left index) is: 0.796, (right index) 0.859
 2021-03-07 20:22:51,131-INFO-Script ended succesfully!
+2021-03-08 13:35:28,982-INFO-BSSR1 data read!
+2021-03-08 13:35:31,119-INFO-Figure 'pdf.png' saved! 
+2021-03-08 13:35:31,582-INFO-Figure 'roc.png' saved!
+2021-03-08 13:35:31,892-INFO-AUC for ROC (left index): 0.9712470650650651, (right index) 0.9826611286286288
+2021-03-08 13:35:32,346-INFO-Figure 'err_th.png' saved!
+2021-03-08 13:35:33,573-INFO-Figure 'det.png' saved!
+2021-03-08 13:36:38,048-INFO-Figure 'f1_acc.png' saved!
+2021-03-08 13:36:38,048-INFO-F1-score is maximum (left index) for thres: 0.13131313131313133, (right index) 0.12121212121212122
+2021-03-08 13:36:38,048-INFO-Accuracy is maximum (left index) for thres: 0.13131313131313133, (right index) 0.12121212121212122
+2021-03-08 13:36:38,218-INFO-EER threshold pos for left index is 0.04580152671755725
+2021-03-08 13:36:38,372-INFO-EER threshold pos for right index is 0.045454545454545456
+2021-03-08 13:36:38,494-INFO-Figure 'eer.png' saved!
+2021-03-08 13:36:39,343-INFO-Figure 'prec_rec.png' saved!
+2021-03-08 13:36:39,343-INFO-AUC for precision-recall (left index) is: 0.8024277703093454, (right index) 0.8616942482978744
+2021-03-08 13:36:39,343-INFO-Average Precision score (left index) is: 0.7988972537365139, (right index) 0.8595122882879992
+2021-03-08 14:58:16,906-INFO-BSSR1 data read!
+2021-03-08 14:58:18,540-INFO-Figure 'pdf.png' saved! 
+2021-03-08 14:58:18,989-INFO-Figure 'roc.png' saved!
+2021-03-08 14:58:19,299-INFO-AUC for ROC (left index): 0.9712470650650651, (right index) 0.9826611286286288
+2021-03-08 14:58:19,754-INFO-Figure 'err_th.png' saved!
+2021-03-08 14:58:20,781-INFO-Figure 'det.png' saved!
+2021-03-08 14:59:25,734-INFO-Figure 'f1_acc.png' saved!
+2021-03-08 14:59:25,734-INFO-F1-score is maximum (left index) for thres: 0.13131313131313133, (right index) 0.12121212121212122
+2021-03-08 14:59:25,734-INFO-Accuracy is maximum (left index) for thres: 0.13131313131313133, (right index) 0.12121212121212122
+2021-03-08 14:59:25,916-INFO-EER threshold pos for left index is 0.04580152671755725
+2021-03-08 14:59:26,081-INFO-EER threshold pos for right index is 0.045454545454545456
+2021-03-08 14:59:26,209-INFO-Figure 'eer.png' saved!
+2021-03-08 14:59:27,113-INFO-Figure 'prec_rec.png' saved!
+2021-03-08 14:59:27,113-INFO-AUC for precision-recall (left index) is: 0.8024277703093454, (right index) 0.8616942482978744
+2021-03-08 14:59:27,113-INFO-Average Precision score (left index) is: 0.7988972537365139, (right index) 0.8595122882879992
+2021-03-08 14:59:27,402-INFO-Figure 'cmc.png' saved!
+2021-03-08 14:59:27,402-INFO-Rank-1 rate (left index) is: 0.796, (right index) 0.859
+2021-03-08 14:59:27,402-INFO-Script ended succesfully!

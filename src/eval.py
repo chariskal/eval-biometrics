@@ -157,9 +157,10 @@ class Eval_class:
         for true,score,l in zip(y_true,scores,labels):
             f1_list = []
             acc_list = []
-            _,_, th_roc = metrics.roc_curve(true, score)       # use built-in function of sklearn
-            new_list = np.flip(th_roc)
-            for thr in new_list[::3]:           # calculate scores every few thresholds to reduce cost of calculations
+            #_,_, th_roc = metrics.roc_curve(true, score)       # use built-in function of sklearn
+            #new_list = np.flip(th_roc)
+            xaxis = np.linspace(0,1,100)
+            for thr in xaxis:           # calculate scores every few thresholds to reduce cost of calculations
                 f1 = metrics.f1_score(true.astype(bool), score>thr, pos_label=1)
                 acc = metrics.accuracy_score(true.astype(bool), score>thr, normalize=True, sample_weight=None)
                 f1_list.append(f1)
@@ -193,11 +194,15 @@ class Eval_class:
         plt.figure()
         eer_pos_list = []            # list to store positions of eer
         for true,score,l in zip(y_true,scores,labels):
-            fpr, tpr, _ = metrics.roc_curve(true, score)                # use built-in function of sklearn
+            fpr, tpr, th_roc = metrics.roc_curve(true, score)                # use built-in function of sklearn
+            xaxis = th_roc[::-1]
+            fpr = fpr[::-1]
+            tpr = tpr[::-1]
             frr = np.ones(len(tpr))-tpr
             plt.plot(fpr, frr,'o-', label=l)
             eer_pos = np.nanargmin(np.absolute((frr - fpr)))            # find index where |FRR - FPR| is min
             eer_pos_list.append(eer_pos)
+            logger.info(f'EER threshold pos for {l} is {xaxis[eer_pos]}')
             plt.plot(fpr[eer_pos],frr[eer_pos],'o', label='EER '+l)             # since it is on the y=x line, use index for both x and y
 
         plt.xlabel('FPR')
@@ -271,16 +276,17 @@ class Eval_class:
             scores_new = scores_new.transpose()     # do the same
 
             for j in range(0,y_new.shape[0]):
-                tmp1 = scores_new[j][:]             # get first row
-                idx = np.argsort(tmp1)              # find where max similarity is
-                idx = idx[::-1]                     # reverse for descending order
-                tmp2 = y_new[j][idx]                # sort true labels based on the index returned
-                r = np.where(tmp2==1)[0][0]         # calculate the rank = where the 1 exists in the prev list
-                rank_arr_tmp[r] = rank_arr_tmp[r]+1 # keep track of the rank in sum array
+                tmp1 = scores_new[j][:]                         # get first row
+                tmp = np.unique(tmp1)                           # get unique values
+                true_sim = tmp1[y_new[j][:].astype(bool)][0]    # find value of genuine similarity
+                sorted_array = np.sort(tmp)                     # sort array
+                sorted_desc = sorted_array[::-1]                # reverse for descending order
+                r = np.where(sorted_desc==true_sim)[0][0]       # calculate rank as to where the true sim value exists
+                rank_arr_tmp[r] = rank_arr_tmp[r]+1         # keep track of the rank in sum array
 
             R_t = np.cumsum(rank_arr_tmp)           # Rank_t ID rate, also known as TPIR
-            R_t = R_t/R_t.max()*100                 # make it percentage
-            plt.plot(R_t, label=l)                  # plot it
+            R_t = R_t/R_t.max()*100.0               # make it percentage
+            plt.plot(R_t[0:80], label=l)            # plot it
             rank_1 = rank_arr_tmp[0]/rank_arr_tmp.sum()
             rank1_list.append(rank_1)
         plt.xlabel('Rank t')
